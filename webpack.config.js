@@ -16,7 +16,7 @@ const config = {
     mode : process.env.MODE,
     entry : { bundle : path.join(__dirname, 'src/index.tsx') },
     output : { path : path.join(__dirname, '/build') },
-    resolve : { extensions : ['.js', '.json', '.ts', '.tsx'] },
+    resolve : { extensions : ['.js', '.json', '.ts', '.tsx', '.scss'] },
     devtool : DEV ? 'cheap-module-source-map' : false,
     module : {
         rules : [
@@ -54,7 +54,7 @@ const config = {
                                     path.resolve(__dirname, 'src')
                                 ]
                             },
-                            additionalData : `@import 'globalStyles.scss';`
+                            additionalData : `@import 'global.scss';`
                         }
                     }
                 ]
