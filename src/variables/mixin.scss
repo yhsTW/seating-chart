@@ -1,0 +1,151 @@
+@mixin square($size, $radius : 0) {
+    width: $size;
+    height: $size;
+
+    @if $radius != 0 {
+        border-radius: $radius;
+    }
+}
+
+@mixin rectangle($width : null, $height : null, $radius : 0) {
+    width: $width;
+    height: $height;
+
+    @if $radius != 0 {
+        border-radius: $radius;
+    }
+}
+
+@mixin circle($size) {
+    @include square($size, 50%);
+};
+
+@mixin font($size : $font-size, $weight : normal, $color : $main-font) {
+    font-size: $size;
+    color: $color;
+    font-weight: $weight;
+}
+
+@mixin bold($size : $font-size, $color : $main-font) {
+    @include font($size, bold, $color);
+}
+
+@mixin normal($size : $font-size, $color : $main-font) {
+    @include font($size, normal, $color);
+}
+
+@mixin flex($align : null, $justify : null) {
+    display: flex;
+    align-items: $align;
+    justify-content: $justify;
+}
+
+@mixin center {
+    @include flex(center, center);
+}
+
+@mixin column($align : null, $justify : null) {
+    @include flex($align, $justify);
+    flex-direction: column;
+}
+
+@mixin modal-background($background : $modal-bg) {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: $background;
+}
+
+@mixin modal-with-bg {
+    @include modal-background();
+}
+
+@mixin modal-without-bg {
+    @include modal-background(transparent);
+}
+
+@mixin modal-contents($width : null, $height : null, $radius : 0, $bg : $white) {
+    @include rectangle($width, $height, $radius);
+    box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.05);
+    background-color: $bg;
+}
+
+@mixin text-ellipsis($width : 100%) {
+    @if $width != 0 {
+        width: $width;
+        max-width: $width;
+    }
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+@mixin hover {
+    &:hover {
+        @content;
+    }
+}
+
+@mixin hover-icon($icon, $hover) {
+    #{ $icon } {
+        display: block;
+    }
+
+    #{ $hover } {
+        display: none;
+    }
+
+    @include hover() {
+        #{ $icon } {
+            display: none;
+        }
+    
+        #{ $hover } {
+            display: block;
+        }
+    }
+}
+
+@mixin overflow($x : visible, $y : visible) {
+    overflow-x: $x;
+    overflow-y: $y;
+}
+
+@mixin hidden {
+    @include overflow(hidden, hidden);
+}
+
+@mixin vertical-scroll($max : 0) {
+    @include overflow(hidden, auto);
+
+    @if $max != 0 {
+        max-height: $max;
+    }
+}
+
+@mixin horizontal-scroll($max : 0) {
+    @include overflow(auto, hidden);
+
+    @if $max != 0 {
+        max-width: $max;
+    }
+}
+
+@mixin scroll-bar($width, $height, $radius : 0, $bg : $border-sub-color) {
+    &::-webkit-scrollbar {
+        @include rectangle($width, $height, $radius);
+        background-color: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: $bg;
+    }
+}
+
+@mixin transparent-scroll-bar {
+    @include scroll-bar(0, 0, 0, transparent);
+}
