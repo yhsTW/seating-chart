@@ -14,12 +14,17 @@ const MINIMIZER = DEV ? BASE_MINIMIZER : [...BASE_MINIMIZER, new TerserJSPlugin(
 
 const config = {
     mode : process.env.MODE,
-    entry : { bundle : path.join(__dirname, 'src/index.js') },
+    entry : { bundle : path.join(__dirname, 'src/index.tsx') },
     output : { path : path.join(__dirname, '/build') },
-    resolve : { extensions : ['.js', '.json'] },
+    resolve : { extensions : ['.js', '.json', '.ts', '.tsx'] },
     devtool : DEV ? 'cheap-module-source-map' : false,
     module : {
         rules : [
+            {
+                test: /\.ts(x?)$/,
+                exclude: /node_modules/,
+                use: ['ts-loader']
+            },
             {
                 test : /\.(js|jsx)$/,
                 exclude : /node_modules/,
