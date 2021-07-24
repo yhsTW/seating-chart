@@ -135,7 +135,7 @@
     }
 }
 
-@mixin scroll-bar($width, $height, $radius : 0, $bg : $border-sub-color) {
+@mixin scroll-bar($width, $height, $radius : 0, $bg : $scroll) {
     &::-webkit-scrollbar {
         @include rectangle($width, $height, $radius);
         background-color: transparent;

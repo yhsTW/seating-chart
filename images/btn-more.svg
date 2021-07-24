@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="btn_user_more" width="20" height="20" viewBox="0 0 20 20">
+    <defs>
+        <style>
+            .cls-1{fill:#b4b4b4}
+        </style>
+    </defs>
+    <path id="패스_2849" d="M1.259 0A1.259 1.259 0 1 1 0 1.259 1.259 1.259 0 0 1 1.259 0z" class="cls-1" transform="translate(9 11.519) rotate(-90)"/>
+    <circle id="타원_159" cx="1.259" cy="1.259" r="1.259" class="cls-1" transform="translate(14.524 11.519) rotate(-90)"/>
+    <path id="패스_2850" d="M1.259 0A1.259 1.259 0 1 1 0 1.259 1.259 1.259 0 0 1 1.259 0z" class="cls-1" transform="translate(3 11.519) rotate(-90)"/>
+    <path id="사각형_1856" fill="none" d="M0 0H20V20H0z"/>
+</svg>

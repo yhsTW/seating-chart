@@ -1,3 +1,4 @@
 .app {
     @include rectangle(100vw, 100vh);
+    @include column();
 }

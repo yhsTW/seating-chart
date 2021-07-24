@@ -1,9 +1,11 @@
 @import '~reset-css/sass/reset';
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&family=Noto+Sans+KR&family=Open+Sans&family=Roboto&display=swap');
 @import './variables/color.scss';
 @import './variables/mixin.scss';
 
 html, body {
     @include square(100%);
+    font-family: 'Nanum Gothic', sans-serif;
 }
 
 * {

@@ -1,0 +1,60 @@
+.space {
+    border: 1px solid #E3E3E3;
+    border-radius: 4px;
+    user-select: none;
+    cursor: pointer;
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.06);
+    position: relative;
+    transition: transform .8s;
+
+    &:hover {
+        transform: translateY(-10px);
+    }
+
+    &::after {
+        content: '';
+        @include square(100%, 4px);
+        box-shadow: 0 12px 20px 0 rgba(0, 0, 0, 0.06);
+        position: absolute;
+        top: 0;
+        opacity: 0;
+        transition: opacity .8s;
+    }
+
+    &:hover::after {
+        opacity: 1;
+        transition: opacity .8s;
+    }
+
+    .top {
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+
+        .icon {
+            margin-top: 10px;
+            margin-right: 10px;
+            @include center();
+            cursor: pointer;
+
+            @include hover-icon('.default', '.on');
+        }
+    }
+
+    .contents {
+        padding: 25px;
+        padding: 10px 25px 25px;
+        @include column();
+
+        .title {
+            @include bold(18px);
+        }
+
+        .description {
+            flex: 1;
+            margin-top: 25px;
+            @include normal(14px, #666666);
+            white-space: pre-wrap;
+        }
+    }
+}
