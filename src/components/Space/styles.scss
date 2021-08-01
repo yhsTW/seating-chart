@@ -1,17 +1,20 @@
 .space {
-    border: 1px solid #E3E3E3;
-    border-radius: 4px;
+    @include rectangle(100%, 15rem, 4px);
+    @include border(#E3E3E3);
+    @include column();
     user-select: none;
     cursor: pointer;
     box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.06);
     position: relative;
     transition: transform .8s;
+    text-decoration: none;
+    -webkit-user-drag: none;
 
     &:hover {
         transform: translateY(-10px);
     }
 
-    &::after {
+    &::before {
         content: '';
         @include square(100%, 4px);
         box-shadow: 0 12px 20px 0 rgba(0, 0, 0, 0.06);
@@ -19,9 +22,10 @@
         top: 0;
         opacity: 0;
         transition: opacity .8s;
+        z-index: -1;
     }
 
-    &:hover::after {
+    &:hover::before {
         opacity: 1;
         transition: opacity .8s;
     }
@@ -42,6 +46,7 @@
     }
 
     .contents {
+        flex: 1;
         padding: 25px;
         padding: 10px 25px 25px;
         @include column();
@@ -55,6 +60,10 @@
             margin-top: 25px;
             @include normal(14px, #666666);
             white-space: pre-wrap;
+        }
+
+        .last-edited {
+            @include normal(12px, #B4B4B4);
         }
     }
 }

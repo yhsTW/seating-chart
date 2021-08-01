@@ -1,5 +1,7 @@
 import React from 'react';
 import Space from '../Space';
+import CreateSpace from '../CreateSpace';
+import PLUS from '../../../images/btn-add-temp.svg';
 import styles from './styles.scss';
 
 type Space = {
@@ -25,6 +27,11 @@ const Spaces = () => {
                     key={ space.id }
                 />
             )) }
+            <CreateSpace>
+                <div className={ styles.spacesCreate }>
+                    <img src={ PLUS } />
+                </div>
+            </CreateSpace>
         </div>
     );
 };

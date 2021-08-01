@@ -1,0 +1,27 @@
+.bg {
+    @include modal-with-bg();
+    @include center();
+    user-select: none;
+
+    .create {
+        @include rectangle(25rem, 30rem, 6px);
+        background-color: $white;
+        box-shadow: 0 12px 20px 0 rgba(0, 0, 0, 0.06);
+
+        .header {
+            @include rectangle(100%, 40px);
+            padding-left: 20px;
+            @include flex(flex-end, space-between);
+
+            .title {
+                @include normal(13px);
+            }
+
+            .close {
+                margin-bottom: 10px;
+                @include center();
+                cursor: pointer;
+            }
+        }
+    }
+}

@@ -2,4 +2,40 @@
     flex: 1;
     padding: 50px 100px;
     overflow: hidden auto;
+
+    .create-space {
+        @include rectangle(min-content, 40px, 20px);
+        @include center();
+        background-color: $main-color;
+        cursor: pointer;
+        overflow: hidden;
+
+        &:hover {
+            
+            .content {
+                width: 84px;
+                margin-right: 10px;
+                transition: all .8s;
+            }
+        }
+        
+        .icon {
+            @include square(40px, 20px);
+            padding: 0 10px;
+            @include center();
+        }
+        
+        .content {
+            width: 0;
+            height: 100%;
+            @include center();
+            @include normal(13px, $white);
+            white-space: nowrap;
+            transition: all .8s;
+            
+            span {
+                width: inherit;
+            }
+        }
+    }
 }

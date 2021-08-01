@@ -149,3 +149,7 @@
 @mixin transparent-scroll-bar {
     @include scroll-bar(0, 0, 0, transparent);
 }
+
+@mixin border($color : $border) {
+    border: 1px solid $color;
+}
